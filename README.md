@@ -1,5 +1,8 @@
 # Flutter in Gitlab CI\Cl
 
+[Medium Article](https://medium.com/@mmahdi.gjafari69/get-flutter-output-in-gitlab-ci-cl-3defd10d72d5 "Medium Article")
+
+
 If you want to get Flutter output in Gitlab Ci\Cl this articla is for you.
 
 I want to explain how you can get **Flutter** ouput by **Docker Image**.
