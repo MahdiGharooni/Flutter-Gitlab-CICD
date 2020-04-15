@@ -1,4 +1,4 @@
-#Flutter in Gitlab CI\Cl
+# Flutter in Gitlab CI\Cl
 
 If you want to get Flutter output in Gitlab Ci\Cl this articla is for you.
 
@@ -9,7 +9,7 @@ I want to explain how you can get **Flutter** ouput by **Docker Image**.
 
 
 
-##Getting Started
+## Getting Started
 As you read before you should add a `.gitlab-ci.yml` file to root of project. Gitlab will read this file to execute and get flutter output. It needs **Java & Flutter SDK** for woking, so we will add them by a **docker image** and you can use flutter commands easily.
 In this project I use my flutter docker image that exists in [dockerHub](https://hub.docker.com/repository/docker/mahdigharooni/flutter "dockerHub"). If you want know how I prepare it you can see this [Github repository](https://github.com/MahdiGharooni/flutter_docker_image "Github repository") .
 
