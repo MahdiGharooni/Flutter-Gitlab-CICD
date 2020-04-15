@@ -1,16 +1,48 @@
-# fluttergitlabcicl
+#Flutter in Gitlab CI\Cl
 
-A new Flutter application.
+If you want to get Flutter output in Gitlab Ci\Cl this articla is for you.
 
-## Getting Started
+I want to explain how you can get **Flutter** ouput by **Docker Image**.
 
-This project is a starting point for a Flutter application.
+**NOTE:** If you are new in gitlab CI\Cl you can read [this](https://docs.gitlab.com/ee/ci/ "this"), to know why should we use it.
+**NOTE: ** If you are new in docker you can read [this](https://docs.docker.com/get-started/ "this").
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+##Getting Started
+As you read before you should add a `.gitlab-ci.yml` file to root of project. Gitlab will read this file to execute and get flutter output. It needs **Java & Flutter SDK** for woking, so we will add them by a **docker image** and you can use flutter commands easily.
+In this project I use my flutter docker image that exists in [dockerHub](https://hub.docker.com/repository/docker/mahdigharooni/flutter "dockerHub"). If you want know how I prepare it you can see this [Github repository](https://github.com/MahdiGharooni/flutter_docker_image "Github repository") .
+
+
+You should add this in first line of  `.gitlab-ci.yml` file:
+	`image: mahdigharooni/flutter:latest `
+
+and now you can introduce your stages and what Gitlab should do . In mine I want to get a debug apk in develop branch and keep it in artifacts:
+
+
+    image: mahdigharooni/flutter:latest
+    
+    stages:
+      - build
+    
+    flutter_build:
+      stage: build
+      before_script:
+        - flutter channel stable
+        - flutter upgrade
+        - flutter pub get
+        - flutter clean
+      script:
+        - flutter analyze
+        - flutter build apk --debug
+      artifacts:
+        paths:
+          - build/app/outputs/apk/debug/app-debug.apk
+      only:
+        refs:
+          - develop
+    
+
+
+you can change it as you project.
+
