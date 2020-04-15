@@ -1,0 +1,40 @@
+image: mahdigharooni/flutter:latest #It is my flutter docker image
+
+stages:
+  - build
+  - deploy
+
+flutter_build:
+  stage: build
+  before_script:
+    - flutter channel stable
+    - flutter upgrade
+    - flutter pub get
+    - flutter clean
+  script:
+    - flutter analyze
+    - flutter build apk --debug
+  artifacts:
+    paths:
+      - build/app/outputs/apk/debug/app-debug.apk
+  only:
+    refs:
+      - develop
+
+
+flutter_deploy:
+  stage: deploy
+  before_script:
+    - flutter channel stable
+    - flutter upgrade
+    - flutter pub get
+    - flutter clean
+  script:
+    - flutter analyze
+    - flutter build apk --split-per-abi
+  artifacts:
+    paths:
+      - build/app/outputs/apk/release/app-armeabi-v7a-release.apk
+  only:
+    refs:
+      - master
