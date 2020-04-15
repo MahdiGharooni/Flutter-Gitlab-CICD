@@ -5,7 +5,8 @@ If you want to get Flutter output in Gitlab Ci\Cl this articla is for you.
 I want to explain how you can get **Flutter** ouput by **Docker Image**.
 
 **NOTE:** If you are new in gitlab CI\Cl you can read [this](https://docs.gitlab.com/ee/ci/ "this"), to know why should we use it.
-**NOTE: ** If you are new in docker you can read [this](https://docs.docker.com/get-started/ "this").
+
+**NOTE:** If you are new in docker you can read [this](https://docs.docker.com/get-started/ "this").
 
 
 
