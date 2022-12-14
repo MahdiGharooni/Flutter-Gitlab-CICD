@@ -48,5 +48,5 @@ and now you can introduce your stages and what Gitlab should do . In mine I want
     
 
 
-you can change it as you project.
+you can change it as your project.
 
